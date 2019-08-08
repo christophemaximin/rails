@@ -138,11 +138,11 @@ module ActiveJob
       def serialize_hash_key(key)
         case key
         when *RESERVED_KEYS
-          raise SerializationError.new("Can't serialize a Hash with reserved key #{key.inspect}")
+          raise SerializationError.new("Can't serialize a Hash with reserved key")
         when String, Symbol
           key.to_s
         else
-          raise SerializationError.new("Only string and symbol hash keys may be serialized as job arguments, but #{key.inspect} is a #{key.class}")
+          raise SerializationError.new("Only string and symbol hash keys may be serialized as job arguments")
         end
       end
 
